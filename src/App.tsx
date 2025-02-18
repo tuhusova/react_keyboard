@@ -19,7 +19,6 @@ export class App extends React.Component<{}, State> {
 
   keyUpHandler = (event: KeyboardEvent) => {
     this.setState({ pressedKey: event.key });
-    console.log(event.key);
   };
 
   render() {
