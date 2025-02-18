@@ -2,10 +2,9 @@ import React from 'react';
 
 type State = {
   pressedKey: string;
-}
+};
 
 export class App extends React.Component<{}, State> {
-
   state: State = {
     pressedKey: '',
   };
@@ -19,17 +18,19 @@ export class App extends React.Component<{}, State> {
   }
 
   keyUpHandler = (event: KeyboardEvent) => {
-    this.setState(prevState =>
-      prevState.pressedKey !== event.key ? { pressedKey: event.key } : null
-    );
+    this.setState({ pressedKey: event.key });
     console.log(event.key);
   };
 
   render() {
     return (
       <div className="App">
-        <p className="App__message">{this.state.pressedKey ? `The last pressed key is [${this.state.pressedKey}]`: "Nothing was pressed yet"}</p>
-  </div>
-    )
+        <p className="App__message">
+          {this.state.pressedKey
+            ? `The last pressed key is [${this.state.pressedKey}`
+            : 'Nothing was pressed yet'}
+        </p>
+      </div>
+    );
   }
-};
+}
